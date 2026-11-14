@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block title %}Liste des étudiants{% endblock %}
+
+{% block content %}
+{% load static %}
+<h1>Liste des étudiants</h1>
+<form method="get">
+    <input type="text" name="q" value="{{ query }}"
+           placeholder="Nom ou prénom">
+    <button type="submit">Rechercher</button>
+</form>
+
+{% if students %}
+<table border="1" cellpadding="8">
+  <tr>
+    <th>Nom</th>
+    <th>Classe</th>
+    <th>Email</th>
+    <th>Actif</th>
+    <th>Action</th>
+  </tr>
+  {% for student in students %}
+  <tr>
+    <td>{{ student.first_name }} {{ student.last_name }}</td>
+    <td><a href="{% url 'students:by_class' student.classe %}">{{ student.classe }}</a></td>
+    <td>{{ student.email }}</td>
+    <td>{% if student.active %}Oui{% else %}Non{% endif %}</td>
+    <td><a href="{% url 'students:detail' student.id %}">Voir</a></td>
+  </tr>
+  {% endfor %}
+</table>
+{% else %}
+<p>Aucun étudiant inscrit.</p>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block title %}Liste des enseignants{% endblock %}
+{% block content %}
+{% load static %}
+<h1>Liste des enseignants</h1>
+
+{% if teachers %}
+<table border="1" cellpadding="8">
+  <tr>
+    <th>Nom</th>
+    <th>Matière</th>
+    <th>Email</th>
+    
+  </tr>
+  {% for teacher in teachers %}
+  <tr>
+    <td>{{ teacher.first_name }} {{ teacher.last_name }}</td>
+    <td>{{ teacher.subject }}</td>
+    <td>{{ teacher.email }}</td>
+
+  </tr>
+  {% endfor %}
+</table>
+{% else %}
+<p>Aucun enseignant inscrit.</p>
+{% endif %}
+{% endblock %}

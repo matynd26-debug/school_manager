@@ -1,0 +1,106 @@
+:root {
+    --vert: #0f7b4f;
+    --vert-fonce: #0a5a3a;
+    --fond: #f4f6f5;
+    --texte: #1f2a26;
+    --bordure: #d9e0dc;
+}
+
+* { box-sizing: border-box; }
+
+body {
+    margin: 0;
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: var(--fond);
+    color: var(--texte);
+    line-height: 1.5;
+}
+
+.container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 16px;
+}
+
+/* En-tête et menu */
+.site-header { background: var(--vert); }
+
+.header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+}
+
+.logo {
+    color: #fff;
+    font-size: 1.3rem;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.menu { display: flex; gap: 6px; flex-wrap: wrap; }
+
+.menu a {
+    color: #fff;
+    text-decoration: none;
+    padding: 8px 14px;
+    border-radius: 6px;
+}
+
+.menu a:hover { background: var(--vert-fonce); }
+.menu a.active { background: #fff; color: var(--vert); font-weight: bold; }
+
+/* Contenu */
+main { padding-top: 24px; padding-bottom: 40px; min-height: 70vh; }
+
+h1 { color: var(--vert-fonce); margin-top: 0; }
+
+a { color: var(--vert); }
+
+/* Tableaux */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+}
+
+th, td { padding: 10px 14px; text-align: left; border-bottom: 1px solid var(--bordure); }
+th { background: var(--vert); color: #fff; }
+tr:hover td { background: #eef6f2; }
+
+/* Formulaire de recherche */
+form { margin: 16px 0; display: flex; gap: 8px; flex-wrap: wrap; }
+
+input[type="text"] {
+    padding: 8px 12px;
+    border: 1px solid var(--bordure);
+    border-radius: 6px;
+    min-width: 220px;
+}
+
+button {
+    background: var(--vert);
+    color: #fff;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+button:hover { background: var(--vert-fonce); }
+
+/* Pied de page */
+.site-footer {
+    background: var(--vert-fonce);
+    color: #fff;
+    text-align: center;
+    padding: 14px 0;
+    font-size: 0.9rem;
+}

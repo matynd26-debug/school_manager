@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block title %}Fiche enseignant{% endblock %}
+{% block content %}
+{% load static %}
+<h1>{{ teacher.first_name }} {{ teacher.last_name }}</h1>
+<p>Email : {{ teacher.email }}</p>
+<p>Matière : {{ teacher.subject }}</p>
+<p><a href="{% url 'teachers:list' %}">Retour à la liste</a></p>
+{% endblock %}

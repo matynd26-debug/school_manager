@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block title %}Détail - {{ student.first_name }}{% endblock %}
+{% block content %}
+{% load static %}
+
+<h1>{{ student.first_name }} {{ student.last_name|upper }}</h1>
+
+<ul>
+  <li>ID : {{ student.id }}</li>
+  <li>Prénom : {{ student.first_name }}</li>
+  <li>Nom : {{ student.last_name|upper }}</li>
+  <li>Classe : {{ student.classe }}</li>
+  <li>Statut : {% if student.active %}Actif{% else %}Inactif{% endif %}</li>
+  <li>Téléphone : {{ student.phone|default:"Non renseigné" }}</li>
+</ul>
+
+<a href="{% url 'students_list' %}">Retour à la liste</a>
+
+{% endblock %}

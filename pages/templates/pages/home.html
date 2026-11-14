@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block title %}Accueil · School Manager{% endblock %}
+
+{% block content %}
+{% load static %}
+
+<section class="hero">
+    <h1>{{ school_name }}</h1>
+    <p>Bienvenue sur School Manager, l'outil de gestion de l'école.</p>
+</section>
+
+<section class="stats">
+    <div class="card">
+        <span class="card-number">{{ nb_students }}</span>
+        <span class="card-label">étudiant{{ nb_students|pluralize }}</span>
+    </div>
+    <div class="card">
+        <span class="card-number">{{ nb_active }}</span>
+        <span class="card-label">actif{{ nb_active|pluralize }}</span>
+    </div>
+    <div class="card">
+        <span class="card-number">{{ nb_teachers }}</span>
+        <span class="card-label">enseignant{{ nb_teachers|pluralize }}</span>
+    </div>
+</section>
+
+<section class="quick-links">
+    <a class="btn" href="{% url 'students:list' %}">Voir les étudiants</a> <br>
+    <a class="btn" href="{% url 'teachers:list' %}">Voir les enseignants</a>
+</section>
+{% endblock %}

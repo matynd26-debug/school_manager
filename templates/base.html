@@ -1,0 +1,36 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}School Manager{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'students/style.css' %}">
+</head>
+<body>
+    {% url 'pages:home' as home_url %}
+    {% url 'students:list' as students_url %}
+    {% url 'teachers:list' as teachers_url %}
+    {% url 'pages:about' as about_url %}
+
+    <header class="site-header">
+        <div class="container header-inner">
+            
+            <nav class="menu">
+                <a href="{{ home_url }}" {% if request.path == home_url %}class="active"{% endif %}>Accueil</a>
+                <a href="{{ students_url }}" {% if students_url in request.path %}class="active"{% endif %}>Étudiants</a>
+                <a href="{{ teachers_url }}" {% if teachers_url in request.path %}class="active"{% endif %}>Enseignants</a>
+                <a href="{{ about_url }}" {% if request.path == about_url %}class="active"{% endif %}>À propos</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">ISEP-AT · School Manager</div>
+    </footer>
+</body>
+</html>
